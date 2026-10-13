@@ -1,0 +1,17 @@
+# Minimal compose for T-01 verification only (health endpoint, no database needed).
+# The definitive compose with db, volumes, and network lives in the infra repo (T-20).
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+      # APP_KEY is intentionally absent here; entrypoint.sh generates it at startup.
+      DATABASE_URL: "postgresql://library:library@db:5432/library"
+      JWT_SECRET: "change-me-before-real-use"
+      ADMIN_USERNAME: "admin"
+      ADMIN_PASSWORD: "changeme"
+      CORS_ORIGIN: "http://localhost:5173"
+      COVERS_DIR: "storage/app/public/covers"

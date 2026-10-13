@@ -1,0 +1,10 @@
+# Ensure shell scripts always use LF line endings (required for execution inside Linux containers)
+*.sh text eol=lf
+
+# PHP and standard text files
+*.php text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+*.env.example text eol=lf
